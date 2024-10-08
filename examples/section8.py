@@ -142,3 +142,76 @@ print(arcticAnimals) # ['arctic fox', 'penguin', 'polar bear', 'snowy owl', 'wal
 last = arcticAnimals.pop()
 print(last) # walrus
 print(arcticAnimals) # ['arctic fox', 'penguin', 'polar bear', 'snowy owl']
+
+#Lists vs. strings
+print("\n>> Lists vs. strings <<")
+ex_list = [1, 2, 3, 4, 5]
+ex_str = 'hello'
+ex_list[2] = 15;
+#ex_str[2] = 'a'; # cannot change a string in this way
+print(ex_list)
+print(ex_str)
+# you can use parts of a string to create a new string
+ex_3 = "No, you can't"
+ex_4 = "Yes, you "+ex_3[8:11]
+print(ex_4)
+
+# what you cant do with lists
+ex_9 = [1, 2, 3, 4, 5]
+ex_10 = ex_9 # ex_10 is now a reference to ex_9
+ex_10[2] = 15
+print(ex_9) # [1, 2, 15, 4, 5]
+print(ex_10) # [1, 2, 15, 4, 5]
+
+#how would you make a copy of a list?
+print("\n>> Making a copy of a list with .copy() <<")
+ex_11 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ex_12 = ex_11.copy()
+ex_12[0][2] = 15
+ex_11[2] = [17, 18, 19]
+ex_12[1] = [14, 15, 16]
+print(ex_11) # [[1, 2, 3], [4, 5, 6], [17, 18, 19]]
+print(ex_12) # [[1, 2, 15], [14, 15, 16], [7, 8, 9]]
+
+#ex_12 is now a shallow copy of ex_11
+#It uses all values of the original list.
+#But then has its own specific values when changes are make to inner lists, but not the outer list
+#but the structure of the list remains the same
+#making changes to ex_11
+
+# What is deepcopy?
+from copy import deepcopy
+ex_13 = [1, 2, 3, 4, 5]
+ex_14 = deepcopy(ex_13)
+ex_14[2] = 15
+print(ex_13) # [1, 2, 3, 4, 5]
+print(ex_14) # [1, 2, 15, 4, 5]
+
+#what is the difference between ex_11.copy() and deepcopy(ex_13)?
+#ex_11.copy() is a shallow copy, it only copies the first level of the list
+#deepcopy(ex_13) is a deep copy, it copies all levels of the list
+
+#line continuation list vs. string
+
+long_list = ["bush",
+             "tree",
+             "flower",
+             "grass"]
+print(long_list)
+
+ex_16 = 2 + \
+        3 + \
+        4
+print(ex_16)
+
+ex_17 = "The \
+quick \
+brown \
+fox"
+print(ex_17)
+ex_18 = "The " \
+        "quick " \
+        "brown " \
+        "fox"
+print(ex_18)
+
